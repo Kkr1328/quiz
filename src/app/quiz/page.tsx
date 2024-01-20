@@ -106,14 +106,15 @@ export default function Home() {
 		const studyScore = answer[10] ?? 0 + answer[20] ?? 0 + answer[30] ?? 0;
 		const activityScore = answer[41] ?? 0 + answer[42] ?? 0;
 		const livingScore = answer[51] ?? 0 + answer[52] ?? 0 + answer[53] ?? 0;
-		console.log(studyScore, activityScore, livingScore);
 		const studyResults = ['S', 'I', 'R', 'A', 'J', 'M'][studyScore];
 		const activityResults = ['S', 'I'][activityScore];
 		const livingResults = ['S', 'I', 'R', 'A', 'J', 'M', 'A'][livingScore];
-		localStorage.setItem(
-			'yourResult',
-			`${studyResults} ${activityResults} ${livingResults}`
-		);
+		if (typeof window !== 'undefined') {
+			localStorage.setItem(
+				'yourResult',
+				`${studyResults} ${activityResults} ${livingResults}`
+			);
+		}
 		router.push('/summary');
 	};
 

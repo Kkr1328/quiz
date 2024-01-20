@@ -6,8 +6,10 @@ export default function Home() {
 	const [yourResult, setYourResult] = useState<string>('');
 
 	useEffect(() => {
-		setYourResult(localStorage.getItem('yourResult') ?? '');
-	}, [localStorage]);
+		if (typeof window !== 'undefined') {
+			setYourResult(localStorage.getItem('yourResult') ?? '');
+		}
+	}, []);
 
 	return (
 		<div className="flex flex-col w-full h-full gap-64 justify-center items-center">

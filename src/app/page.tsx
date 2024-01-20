@@ -9,8 +9,10 @@ export default function Home() {
 	const router = useRouter();
 
 	useEffect(() => {
-		localStorage.setItem('yourResult', '');
-	}, [localStorage]);
+		if (typeof window !== 'undefined') {
+			localStorage.setItem('yourResult', '');
+		}
+	}, []);
 
 	return (
 		<div className="flex flex-col w-full h-full gap-32 justify-center items-center">
