@@ -8,12 +8,6 @@ export default function Home() {
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			setYourResult(localStorage.getItem('yourResult') ?? '');
-			fetch('api/AnswerSet', {
-				method: 'POST',
-				body: JSON.stringify({
-					answer_set: localStorage.getItem('answerSet'),
-				}),
-			});
 		}
 	}, []);
 
