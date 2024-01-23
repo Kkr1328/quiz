@@ -1,17 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
 	const [yourResult, setYourResult] = useState<string>('');
 
-	if (typeof window !== 'undefined') {
-		setYourResult(localStorage.getItem('yourResult') ?? '');
-		fetch('api/AnswerSet', {
-			method: 'POST',
-			body: JSON.stringify({ answer_set: localStorage.getItem('answerSet') }),
-		});
-	}
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			setYourResult(localStorage.getItem('yourResult') ?? '');
+			fetch('api/AnswerSet', {
+				method: 'POST',
+				body: JSON.stringify({
+					answer_set: localStorage.getItem('answerSet'),
+				}),
+			});
+		}
+	}, []);
 
 	return (
 		<div className="flex flex-col w-full h-full gap-64 justify-center items-center">

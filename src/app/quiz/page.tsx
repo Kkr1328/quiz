@@ -118,7 +118,7 @@ export default function Home() {
 				'yourResult',
 				`${studyResults} ${activityResults} ${livingResults}`
 			);
-			localStorage.setItem('answerSet', answerSet);
+			localStorage.setItem('answerSet', JSON.stringify(answerSet));
 		}
 		return router.push('/summary');
 	};
