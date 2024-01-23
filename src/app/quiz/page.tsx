@@ -125,6 +125,9 @@ export default function Home() {
 			body: JSON.stringify({
 				answer_set: answerSet,
 			}),
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		});
 	};
 
