@@ -99,13 +99,17 @@ export default function Home() {
 					setQuestionsId(questionsId + 10);
 			}
 		}
-		if (questionsId === 60) goToSummary();
+		if (questionsId === 60) {
+			goToSummary({ ...answer, [60]: newAnswer });
+		}
 	};
 
-	const goToSummary = () => {
-		const studyScore = answer[10] ?? 0 + answer[20] ?? 0 + answer[30] ?? 0;
-		const activityScore = answer[41] ?? 0 + answer[42] ?? 0;
-		const livingScore = answer[51] ?? 0 + answer[52] ?? 0 + answer[53] ?? 0;
+	const goToSummary = async (answerSet: any) => {
+		const studyScore =
+			answerSet[10] ?? 0 + answerSet[20] ?? 0 + answerSet[30] ?? 0;
+		const activityScore = answerSet[41] ?? 0 + answerSet[42] ?? 0;
+		const livingScore =
+			answerSet[51] ?? 0 + answerSet[52] ?? 0 + answerSet[53] ?? 0;
 		const studyResults = ['S', 'I', 'R', 'A', 'J', 'M'][studyScore];
 		const activityResults = ['S', 'I'][activityScore];
 		const livingResults = ['S', 'I', 'R', 'A', 'J', 'M', 'A'][livingScore];
@@ -115,7 +119,10 @@ export default function Home() {
 				`${studyResults} ${activityResults} ${livingResults}`
 			);
 		}
-		router.push('/summary');
+		return fetch('api/AnswerSet', {
+			method: 'POST',
+			body: JSON.stringify({ answer_set: answerSet }),
+		}).then(() => router.push('/summary'));
 	};
 
 	return (
