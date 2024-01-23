@@ -118,11 +118,9 @@ export default function Home() {
 				'yourResult',
 				`${studyResults} ${activityResults} ${livingResults}`
 			);
+			localStorage.setItem('answerSet', answerSet);
 		}
-		return fetch('api/AnswerSet', {
-			method: 'POST',
-			body: JSON.stringify({ answer_set: answerSet }),
-		}).then(() => router.push('/summary'));
+		return router.push('/summary');
 	};
 
 	return (
