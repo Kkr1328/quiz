@@ -119,16 +119,15 @@ export default function Home() {
 				`${studyResults} ${activityResults} ${livingResults}`
 			);
 		}
-		router.push('/summary');
-		return fetch('api/AnswerSet', {
+		fetch(process.env.NEXT_PUBLIC_API_URL ?? '', {
 			method: 'POST',
-			body: JSON.stringify({
-				answer_set: answerSet,
-			}),
+			body: JSON.stringify(answerSet),
 			headers: {
 				'Content-Type': 'application/json',
 			},
 		});
+		router.push('/summary');
+		return;
 	};
 
 	return (
