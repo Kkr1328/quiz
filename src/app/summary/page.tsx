@@ -1,25 +1,22 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { ResultContext } from '@/wrapper';
 
 export default function Home() {
-	const result = localStorage.getItem('yourResult') ?? '';
 	const router = useRouter();
+	const [result] = useContext(ResultContext);
 
-	const [yourResult, setYourResult] = useState<string>('');
+	const [yourResult, setYourResult] = useState<string>(result.result);
 	const pageRef = useRef<HTMLDivElement>(null);
 	const [pageWidth, setPageWidth] = useState<number>(390);
 	const [pageHeight, setPageHeight] = useState<number>(840);
 
 	useEffect(() => {
-		if (result === '') {
+		if (yourResult === '') {
 			router.push('/');
-		}
-
-		if (typeof window !== 'undefined') {
-			setYourResult(result);
 		}
 
 		const resizeObserver = new ResizeObserver(() => {

@@ -1,18 +1,16 @@
 'use client';
 
+import { ResultContext } from '@/wrapper';
 import { Button } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 
 export default function Home() {
 	const router = useRouter();
+	const [_, setResult] = useContext(ResultContext);
 
-	useEffect(() => {
-		if (typeof window !== 'undefined') {
-			localStorage.setItem('yourResult', '');
-		}
-	}, []);
+	useEffect(() => setResult({ result: '' }), []);
 
 	return (
 		<div className="flex flex-col w-full h-full gap-32 justify-center items-center">

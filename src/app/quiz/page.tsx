@@ -1,14 +1,16 @@
 'use client';
 
 import { defaultQuestion, questionsSet } from '@/const';
+import { ResultContext } from '@/wrapper';
 import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import { Button } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 export default function Home() {
 	const router = useRouter();
+	const [_, setResult] = useContext(ResultContext);
 
 	const [questionsNumber, setQuestionsNumber] = useState<number>(1);
 	const [questionsId, setQuestionsId] = useState<number>(10);
@@ -113,12 +115,9 @@ export default function Home() {
 		const studyResults = ['S', 'I', 'R', 'A', 'J', 'M'][studyScore];
 		const activityResults = ['S', 'I'][activityScore];
 		const livingResults = ['S', 'I', 'R', 'A', 'J', 'M', 'A'][livingScore];
-		if (typeof window !== 'undefined') {
-			localStorage.setItem(
-				'yourResult',
-				`${studyResults} ${activityResults} ${livingResults}`
-			);
-		}
+		setResult({
+			result: `${studyResults} ${activityResults} ${livingResults}`,
+		});
 		fetch(process.env.NEXT_PUBLIC_API_URL ?? '', {
 			method: 'POST',
 			body: JSON.stringify(answerSet),
