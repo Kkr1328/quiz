@@ -1,6 +1,6 @@
 'use client';
 
-import { ResultContext } from '@/wrapper';
+import { ResultContext } from '@/Wrapper';
 import { Button } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';

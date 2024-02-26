@@ -3,7 +3,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ResultContext } from '@/wrapper';
+import { ResultContext } from '@/Wrapper';
 
 export default function Home() {
 	const router = useRouter();

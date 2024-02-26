@@ -1,7 +1,7 @@
 'use client';
 
 import { defaultQuestion, questionsSet } from '@/const';
-import { ResultContext } from '@/wrapper';
+import { ResultContext } from '@/Wrapper';
 import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import { Button } from '@mui/material';

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Istok_Web } from 'next/font/google';
 import './globals.css';
-import Wrapper from '@/wrapper';
+import Wrapper from '@/Wrapper';
 
 const istok_web = Istok_Web({
 	weight: ['400', '700'],
