@@ -132,7 +132,7 @@ export default function Home() {
 
 	return (
 		<div className="flex flex-col w-full h-full py-32 gap-32 items-center">
-			<div className="flex flex-row w-full justify-center items-center">
+			<div className="flex flex-row w-full max-w-[400px] justify-center items-center">
 				<Button
 					disableRipple
 					className="normal-case flex flex-row justify-center items-center text-green disabled:text-grey"
@@ -166,18 +166,18 @@ export default function Home() {
 					)}
 				</Button>
 			</div>
-			<div className="flex flex-col w-[80vw] gap-32">
+			<div className="flex flex-col w-[80vw] max-w-[400px] gap-32">
 				<div className="flex min-h-[20vh] py-32 px-16 rounded-lg bg-green drop-shadow-lg justify-center items-center">
 					<p className="font-istok break-words text-center text-white text-p1">
 						{question.content}
 					</p>
 				</div>
-				<div className="flex flex-col gap-12">
+				<div className="flex flex-col gap-12 pb-16">
 					{question.choices.map((choice, index) => (
 						<button
 							key={index}
 							onClick={() => handleNextQuestion(index)}
-							className={`py-12 rounded-md border-2 border-green ${
+							className={`p-12 rounded-md border-2 border-green ${
 								answer[question.id] === index
 									? 'bg-light_green drop-shadow-md'
 									: 'bg-white'
