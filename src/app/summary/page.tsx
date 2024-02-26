@@ -9,13 +9,12 @@ export default function Home() {
 	const router = useRouter();
 	const [result] = useContext(ResultContext);
 
-	const [yourResult, setYourResult] = useState<string>(result.result);
 	const pageRef = useRef<HTMLDivElement>(null);
 	const [pageWidth, setPageWidth] = useState<number>(390);
 	const [pageHeight, setPageHeight] = useState<number>(840);
 
 	useEffect(() => {
-		if (yourResult === '') {
+		if (result.result === '') {
 			router.push('/');
 		}
 
@@ -77,7 +76,7 @@ export default function Home() {
 				</p>
 				<div className="flex w-[140px] h-[140px] rounded-[70px] bg-green drop-shadow-xl justify-center items-center">
 					<p className="font-istok break-words text-center text-white text-h1">
-						{yourResult}
+						{result.result}
 					</p>
 				</div>
 			</div>

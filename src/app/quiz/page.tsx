@@ -112,9 +112,10 @@ export default function Home() {
 		const activityScore = answerSet[41] ?? 0 + answerSet[42] ?? 0;
 		const livingScore =
 			answerSet[51] ?? 0 + answerSet[52] ?? 0 + answerSet[53] ?? 0;
-		const studyResults = ['S', 'I', 'R', 'A', 'J', 'M'][studyScore];
-		const activityResults = ['S', 'I'][activityScore];
-		const livingResults = ['S', 'I', 'R', 'A', 'J', 'M', 'A'][livingScore];
+		const arrayOfResult = ['S', 'I', 'R', 'A', 'J', 'M', 'A'];
+		const studyResults = arrayOfResult[studyScore];
+		const activityResults = arrayOfResult[activityScore];
+		const livingResults = arrayOfResult[livingScore];
 		setResult({
 			result: `${studyResults} ${activityResults} ${livingResults}`,
 		});

@@ -25,7 +25,7 @@ export default function Home() {
 					alt="Questions picture"
 				/>
 			</div>
-			<div className="flex flex-col w-[70vw] max-w-[400px] mb-40 p-32 pb-72 bg-white rounded-lg drop-shadow-xl items-center">
+			<div className="flex flex-col w-[70vw] max-w-[400px] relative mb-40 p-32 pb-72 bg-white rounded-lg drop-shadow-xl items-center">
 				<p className="font-istok break-words text-center text-green text-h1">
 					Identity of SIRIRAJ
 				</p>
