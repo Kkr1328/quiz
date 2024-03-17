@@ -84,6 +84,12 @@ export default function Home() {
 				<p className="font-istok break-words text-center text-white text-p2">
 					Let's share this to your IG 🎉
 				</p>
+				<p className="font-istok break-words text-center text-white text-p2">
+					เพื่อนๆ สามารถนำอักษรลับไปดูดวงประจำวันได้ที่
+				</p>
+				<p className="font-istok break-words text-center text-white text-p2">
+					IG: smsusiriraj
+				</p>
 			</div>
 			<Image
 				src="/green_thunder.svg"
